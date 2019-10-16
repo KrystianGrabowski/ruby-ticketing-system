@@ -3,7 +3,9 @@
 Things you may want to cover:
 
 * Create new event
+'''
     POST http://localhost:3000/events
+'''
 * List all events
     GET http://localhost:3000/events
 * Configuration
