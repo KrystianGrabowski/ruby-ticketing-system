@@ -4,8 +4,11 @@ class EventsController < ApplicationController
 
     def create
         @event = Event.new(params.require(:event).permit!)
-        @event.save
-        render json: @event
+        if @event.save
+            render json: {"Status": "Ok"}
+        else
+            raise "Could not create the event"
+        end
     end
 
     def show
@@ -16,11 +19,6 @@ class EventsController < ApplicationController
     def index
         @events = Event.all
         render json: @events
-    end
-
-    def update_number_of_tickets
-        @event = Event.find(params[:id])
-        @event.update available_tickets: @event.available_tickets - 1
     end
 
 end
