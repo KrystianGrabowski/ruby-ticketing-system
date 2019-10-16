@@ -20,7 +20,7 @@ class ConfirmCart < ActiveInteraction::Base
     end
   
     def update_quantity
-        if event.available_tickets - quantity < 0
+        if quantity <= 0 || event.available_tickets - quantity < 0
             raise "Not enough tickets to perform this operation"
         end
         event.update available_tickets: event.available_tickets - quantity

@@ -29,7 +29,8 @@ Things you may want to cover:
     {   
         "user_id": 4,
         "event_id": 5,
-        "quantity": 1
+        "quantity": 1,
+        "token": "card_error"
     }
 ```
 * List all payments
