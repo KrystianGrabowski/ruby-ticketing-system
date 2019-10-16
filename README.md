@@ -22,9 +22,15 @@ Things you may want to cover:
 ```
     GET http://localhost:3000/events/:id
 ```
-* Create new payment
+* Create new payment (buy ticket)
 ```
     POST http://localhost:3000/events
+    
+    {   
+        "user_id": 4,
+        "event_id": 5,
+        "quantity": 1
+    }
 ```
 * List all payments
 ```
