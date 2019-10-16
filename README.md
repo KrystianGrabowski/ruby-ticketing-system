@@ -10,16 +10,20 @@ Things you may want to cover:
 ```
     GET http://localhost:3000/events
 ```
-* Configuration
+* List one particular event
+```
+    GET http://localhost:3000/events/:id
+```
+* Create new payment
+```
+    POST http://localhost:3000/events
+```
+* List all payments
+```
+    GET http://localhost:3000/events
+```
+* List one particular payment
+```
+    GET http://localhost:3000/events/:id
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

@@ -27,6 +27,7 @@ class ConfirmCart < ActiveInteraction::Base
     end
 
     def create_payment
+        #'price' in Payment model is the price for one ticket only !
         @payment = Payment.new(user_id: user_id, event_id: event.id, price: event.price, quantity: quantity )
         if !@payment.save
             raise "Could not create payment"
