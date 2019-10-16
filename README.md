@@ -1,14 +1,11 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Ticketing system
 
 Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
+* Create new event
+    POST http://localhost:3000/events
+* List all events
+    GET http://localhost:3000/events
 * Configuration
 
 * Database creation
@@ -22,4 +19,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-# ruby-ticketing-system
