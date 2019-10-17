@@ -1,10 +1,13 @@
 require 'rails_helper'
+include Errors
 
 RSpec.describe ConfirmCart do
   let(:price) {42}
   let(:user_id) {25}
   let(:available_tickets) {5}
-  let(:event) { Event.new(available_tickets: available_tickets, price: price) }
+  let(:event) { Event.new(available_tickets: available_tickets, price: price, date: Time.now + 2592000 ) }
+  let(:past_event) { Event.new(available_tickets: available_tickets, price: price, date: Time.now - 2592000) }
+
 
   describe '.run' do
     subject { described_class.run(event: event, quantity: 2, user_id: user_id) }
@@ -32,22 +35,23 @@ RSpec.describe ConfirmCart do
   describe 'update quantity with -1' do
     subject { described_class.run(event: event, quantity: -1, user_id: user_id) }
     it 'raises exception' do
-        expect { subject }.to raise_error RuntimeError
+        expect { subject }.to raise_error TicketError
     end
   end
 
   describe 'update quantity with 0' do
     subject { described_class.run(event: event, quantity: 0, user_id: user_id) }
     it 'raises exception' do
-        expect { subject }.to raise_error RuntimeError
+        expect { subject }.to raise_error TicketError
     end
   end
 
   describe "not enough tickets" do
-    subject { described_class.run(event: event, quantity: available_tickets + 1, user_id: user_id) }
+    subject { described_class.run(event: past_event, quantity: available_tickets + 1, user_id: user_id) }
     it 'raises exception' do
-        expect { subject }.to raise_error RuntimeError
+        expect { subject }.to raise_error TicketError
     end
   end
+
 
 end
