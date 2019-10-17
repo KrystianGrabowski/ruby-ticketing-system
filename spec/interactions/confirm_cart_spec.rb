@@ -53,5 +53,4 @@ RSpec.describe ConfirmCart do
     end
   end
 
-
 end

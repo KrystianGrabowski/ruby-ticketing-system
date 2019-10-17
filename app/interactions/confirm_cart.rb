@@ -19,7 +19,7 @@ class ConfirmCart < ActiveInteraction::Base
 
     def check_date
         if event.date < Time.now
-            raise TicketError, "Event tickets are no longer available"
+            raise TicketError, "Tickets are no longer available. Event occured in the past"
         end
     end
   
